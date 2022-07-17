@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
 import './Header.css';
 
 
 const Header = () => {
-    const { user, logout } = useFirebase();
+    const { user, logout } = useAuth();
 
     return (
         <>
@@ -22,6 +22,9 @@ const Header = () => {
                             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
                                 <li className="nav-item active">
                                     <Link className="nav-link" to="/home">Home</Link>
+                                </li>
+                                <li className="nav-item active">
+                                    <Link className="nav-link" to="/shipping">Shipping</Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/login">Log in</Link>
