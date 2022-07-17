@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 import './Header.css';
 
 
 const Header = () => {
+    const { user, logout } = useFirebase();
+
     return (
         <>
             <header>
@@ -13,7 +16,7 @@ const Header = () => {
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                             aria-label="Toggle navigation">
-                           <span class="navbar-toggler-icon"></span>
+                            <span className="navbar-toggler-icon"></span>
                         </button>
                         <div className="collapse navbar-collapse menu-navbar-nav" id="navbarNav">
                             <ul className="navbar-nav m-auto mb-2 mb-lg-0">
@@ -22,6 +25,10 @@ const Header = () => {
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/login">Log in</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <span>{user.displayName} </span>
+                                    <button className="btn btn-secondary" onClick={logout}>Log out</button>
                                 </li>
                             </ul>
                         </div>

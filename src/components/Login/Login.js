@@ -1,8 +1,12 @@
 import React from 'react';
+import useFirebase from '../../hooks/useFirebase';
 import './Login.css'
 
 
 const Login = () => {
+
+    const { singnInWithGoogle, signInWithGithub } = useFirebase();
+
     return (
         <>
             <section className="h-100 gradient-form">
@@ -62,7 +66,7 @@ const Login = () => {
                                                 <i className="ri-facebook-circle-fill"></i>
                                             </button>
 
-                                            <button type="button" className="btn btn-link btn-floating mx-1 text-decoration-none">
+                                            <button type="button" className="btn btn-link btn-floating mx-1 text-decoration-none" onClick={singnInWithGoogle}>
                                                 <i className="ri-google-fill"></i>
                                             </button>
 
@@ -70,7 +74,7 @@ const Login = () => {
                                                 <i className="ri-twitter-fill"></i>
                                             </button>
 
-                                            <button type="button" className="btn btn-link btn-floating mx-1 text-decoration-none">
+                                            <button type="button" className="btn btn-link btn-floating mx-1 text-decoration-none" onClick={signInWithGithub}>
                                                 <i className="ri-github-fill"></i>
                                             </button>
                                         </div>
